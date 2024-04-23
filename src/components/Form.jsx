@@ -46,18 +46,17 @@ const Form = ({ isLoading }) => {
 							<LoadingSpinner />
 						</div>
 					)}
+					<label htmlFor='text'>Todo</label>
 					<input
+						id='text'
 						value={input}
 						onChange={inputChangeHandler}
 						type='text'
 						placeholder='Text'
 					/>
-					<input
-						value={date}
-						onChange={dateChangeHandler}
-						type='date'
-					/>
-					<Button id="formBtn">Add Todo</Button>
+					<label htmlFor="date">Date</label>
+					<input id='date' value={date} onChange={dateChangeHandler} type='date' />
+					<Button id='formBtn'>Add Todo</Button>
 				</form>
 			</StyleDiv>
 		</Fragment>
@@ -70,8 +69,12 @@ const StyleDiv = styled.div`
 	& form {
 		display: flex;
 		flex-wrap: wrap;
-		justify-content: center;
 		gap: 1rem;
+	}
+
+	& label {
+		color: black;
+		font-weight: 600;
 	}
 
 	&& input {
@@ -99,13 +102,18 @@ const StyleDiv = styled.div`
 	}
 
 	&& #formBtn {
-		padding: 10px 100px;
+		width: 100%;
 	}
 
 	&& #formBtn:hover {
 		background-color: black;
 		color: white;
 		transition: 500ms;
+	}
+
+	&& #formBtn:active {
+		background-color: black;
+		color: white;
 	}
 
 	&& #formBtn:not(:hover) {
